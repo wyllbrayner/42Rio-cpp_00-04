@@ -11,70 +11,101 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
-int main(void)
+PhoneBook::PhoneBook(void)
 {
-	PhoneBook	PhoneBook;
-	bool		run = true;
-	std::string	command;
+	this->_index = 0;
+	this->_full = false;
+	return;
+}
 
-	PhoneBook.show_instructions();
-	std::cout << "\033[33m$>\033[0m";
-	while (run && std:getline(std::cin, command))
+PhoneBook::~PhoneBook(void)
+{
+	return;
+}
+
+void	PhoneBook::set_information(void)
+{
+	std::string input;
+	if (this->_full == false)
 	{
+		std::cout << "This is your contact #" << this->_index + 1 << std::endl;
+		if (this->_contacts[this->_index].set_contact() == true)
+		{
+			if (this->_index == 7)
+				this->_full = true;
+			else
+				this->_index++;
+		}
+	}
+	else
+	{
+		std::cout << "Your phonebook is full.\nif you want to add a new contact, i am going to delete the first contact i stored, index #1." << std::endl;
+		std::cout << "If you want to proceed, press '1' and confirm with 'enter',\nif not press anything but '1' and confirm with 'enter' to go back to main menu." << std::endl;
+		std::cout << "Your choice: ";
+		getline(std::cin, input);
 		if (std::cin.eof() == true)
 		{
-			std::cout << "You Pressed ^D. Exitting phonebook now." << std::endl;
-			exit(0);
+			std::cout << "You Pressed ^D. Exiting phonebook now." << std::endl;
+			std::exit(0);
 		}
-		else if (command.compare("ADD") == 0)
-			PhoneBook.set_informations();
-		else if (command.compare("SEARCH") == 0)
-			PhoneBook.get_informations();
-		else if (command.compare("EXIT") == 0)
+		else if (input.compare("1") == 0)
 		{
-			std::cout << "\033[34mHope I served you well. \033[0m" << std::endl;
-			run = false;
-			continue ;
+			for (int i = 1; i < 8; i++)
+				this->_contacts[i - 1] = this->_contacts[i];
+			std::cout << "This is your contact #8" << std::endl;
+			this->_contacts[this->_index].set_contact();
 		}
-		command.clear();
-		PhoneBook.show_instructions();
-		std::cout << "\033[33m$>\033[0m";
+		else
+			std::cout << "Back to main menu without deleting and creating a contact." << std::endl;
 	}
-	if (run)
-	{
-		std::cout << "You pressed ^D, exiting now." << command << std::endl
-		<< "\033[34mHope i served you well. Good Bye.\033[0m" << std::endl;
-	}
-
 }
-/*
-int	main (void)
+
+void PhoneBook::get_information() const
 {
-	std:: string	line;
+	int index;
 
-	std::cout << "Choose one of the following options: [ADD, SEARCH, EXIT]: ";
-	std::getline(std::cin, line);
-	while (1)
+	if (this->_index == 0)
+		std::cout << "\033[31mPlease add at least one contact before searching.\033[0m" << std::endl;
+	else
 	{
-		std::cout << "comando: " << line << std::endl;
-		if (std::cin.eof())
+		std::string input;
+		std::cout << "Please tell me which contact index I should show you. (0 to quit searching)\nindex: ";
+		while (!(std::getline(std::cin, input)) || input.length() > 1 || input.compare("0") < 0 || input.compare("8") > 0 || (std::atoi(input.c_str()) -1 >= this->_index && this->_full == false))
 		{
-			std::cout << "apertou ^D" << std::endl;
-			break ;
+			if (std::cin.eof() == true)
+			{
+				std::cout << "You Pressed ^D. Exiting phonebook now." << std::endl;
+				std::exit(0);
+			}
+			else if (input.length() > 1 || input.compare("0") < 0 || input.compare("8") > 0)
+			{
+				std::cin.clear();
+				std::cout << "\033[31mOnly digits in range of 1 to 8 are allowed.\033[0m\n";
+				std::cout << "Please tell me which contact I should show you. (0 to quit searching)\nIndex: ";
+			}
+			else if (std::atoi(input.c_str()) -1 >= this->_index && this->_full == false)
+			{
+				std::cout << "\033[33mYou only have " << this->_index << " Contacts saved.\033[0m" << std::endl;
+				std::cin.clear();
+				std::cout << "Please tell me which contact I should show you. (0 to quit searching)\nIndex: ";
+			}
 		}
-		else if (line == "ADD")
-			std::cout << "O comando foi ADD" << std::endl;
-		else if (line == "SEARCH")
-			std::cout << "O comando foi SEARCH" << std::endl;
-		else if (line == "EXIT")
+		index = std::atoi(input.c_str());
+		if (index > 0)
 		{
-			std::cout << "O comando foi EXIT" << std::endl;
-			break ;
+			std::cout << "|----------|----------|----------|----------|" << std::endl;
+			std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+			std::cout << "|----------|----------|----------|----------|" << std::endl;
+			this->_contacts[index - 1].get_contact(index);
+			std::cout << "|-------------------------------------------|" << std::endl;
 		}
-		std::cout << "Choose one of the following options: [ADD, SEARCH, EXIT]: ";
-		std::getline(std::cin, line);
+		else
+			std::cout << "Exiting search mode now." << std::endl;
 	}
 }
-*/
+
+void	PhoneBook::show_instruction(void)
+{
+	std::cout << "\033[KEnter your command [ADD, SEARCH, EXIT]:" << std::endl;
+}

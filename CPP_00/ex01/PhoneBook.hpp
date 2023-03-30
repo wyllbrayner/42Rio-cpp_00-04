@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include <string>
 #include <iomanip>
 #include <cstdlib>
 #include <iostream>
+#include "Contact.hpp"
 
-class Contact
+class PhoneBook
 {
 	private:
-		static std::string	_fields_name[5];
-		std::string			_informations[11];
-
-		enum Fields
-		{
-			FirstName = 0,
-			LastName,
-			NickName,
-			PhoneNumber,
-			DarkestSecret
-		};
+		Contact _contacts[8];
+		int		_index;
+		bool	_full;
 
 	public:
-		Contact(void);
-		~Contact(void);
+	PhoneBook(void);
+	~PhoneBook(void);
 
-		bool	set_contact();
-		void	get_contact(int index)const;
+	void	set_information(void);
+	void	get_information(void)const;
+	void	show_instruction(void);
 };
 
 #endif
