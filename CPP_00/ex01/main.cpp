@@ -16,65 +16,28 @@
 int main(void)
 {
 	PhoneBook	PhoneBook;
-	bool		run = true;
+	bool		run;
 	std::string	command;
 
+	run = true;
 	PhoneBook.show_instruction();
-	std::cout << "\033[33m$>\033[0m";
-	while (run && std::getline(std::cin, command))
+	std::getline(std::cin, command);
+	while (run)
 	{
-		if (std::cin.eof() == true)
-		{
-			std::cout << "You Pressed ^D. Exitting phonebook now." << std::endl;
-			exit(0);
-		}
-		else if (command.compare("ADD") == 0)
+		if (std::cin.eof())
+			break ;
+		else if (command == "ADD")
 			PhoneBook.set_information();
-		else if (command.compare("SEARCH") == 0)
+		else if (command == "SEARCH")
 			PhoneBook.get_information();
-		else if (command.compare("EXIT") == 0)
+		else if (command == "EXIT")
 		{
-			std::cout << "\033[34mHope I served you well. \033[0m" << std::endl;
 			run = false;
-			continue ;
+			break ;
 		}
-		command.clear();
 		PhoneBook.show_instruction();
-		std::cout << "\033[33m$>\033[0m";
+		std::getline(std::cin, command);
 	}
 	if (run)
-	{
-		std::cout << "You pressed ^D, exiting now." << command << std::endl
-		<< "\033[34mHope i served you well. Good Bye.\033[0m" << std::endl;
-	}
-
+		std::cout << std::endl;
 }
-/*
-int	main (void)
-{
-	std:: string	line;
-
-	std::cout << "Choose one of the following options: [ADD, SEARCH, EXIT]: ";
-	std::getline(std::cin, line);
-	while (1)
-	{
-		std::cout << "comando: " << line << std::endl;
-		if (std::cin.eof())
-		{
-			std::cout << "apertou ^D" << std::endl;
-			break ;
-		}
-		else if (line == "ADD")
-			std::cout << "O comando foi ADD" << std::endl;
-		else if (line == "SEARCH")
-			std::cout << "O comando foi SEARCH" << std::endl;
-		else if (line == "EXIT")
-		{
-			std::cout << "O comando foi EXIT" << std::endl;
-			break ;
-		}
-		std::cout << "Choose one of the following options: [ADD, SEARCH, EXIT]: ";
-		std::getline(std::cin, line);
-	}
-}
-*/
