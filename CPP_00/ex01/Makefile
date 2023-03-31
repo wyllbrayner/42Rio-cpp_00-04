@@ -8,7 +8,8 @@ COMP        =  c++
 all: $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES)
-	$(COMP) $(FLAG) -o $(NAME) $(OBJS) $(INCLUDES)
+	$(COMP) $(FLAG) $(OBJS) $(INCLUDES)
+	mv a.out $(NAME)
 
 clean:
 	$(RM) $(OBJS)

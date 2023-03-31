@@ -23,10 +23,25 @@ std::string Contact::_fields_name[5] =
 
 Contact::Contact()
 {
+	int	i;
+
+	i = FirstName;
+	while (i <= DarkestSecret)
+	{
+		this->_informations[i] = std::string();
+		i++;
+	}
+	return;
+}
+
+/*
+Contact::Contact()
+{
 	for (int i = FirstName; i <= DarkestSecret; i++)
 		this->_informations[i] = std::string();
 	return;
 }
+*/
 
 Contact::~Contact()
 {
@@ -47,24 +62,28 @@ bool Contact::set_contact()
 			else if (this->_informations[i].length() == 0)
 			{
 				this->_informations[i].clear();
-				std::cout << "\033[31mEmpty contact information not allowed.\033[";
+				std::cout << "Empty contact information not allowed.";
 			}
 		}
 	}
-	std::cout << "\033[32mContact added sucessesfully.\033[0m" << std::endl;
+	std::cout << "Contact added sucessesfully." << std::endl;
 	return (true);
 }
 
 void Contact::get_contact(int index) const
 {
+	int	i;
+
+	i = FirstName;
 	std::cout << "|" << std::setw(10) << index;
-	for (int i = FirstName; i <= NickName; i++)
+	while (i <= NickName)
 	{
 		std::cout << "|";
 		if (this->_informations[i].length() > 10)
 			std::cout << this->_informations[i].substr(0, 9) << ".";
 		else
 			std::cout << std::setw(10) << this->_informations[i];
+		i++;
 	}
 	std::cout << "|" << std::endl;
 }

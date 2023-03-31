@@ -24,20 +24,16 @@ int main(void)
 	std::getline(std::cin, command);
 	while (run)
 	{
-		if (std::cin.eof())
-			break ;
-		else if (command == "ADD")
-			PhoneBook.set_information();
-		else if (command == "SEARCH")
-			PhoneBook.get_information();
-		else if (command == "EXIT")
+		if ((std::cin.eof()) || (command == "EXIT"))
 		{
 			run = false;
 			break ;
 		}
+		else if (command == "ADD")
+			PhoneBook.set_information();
+		else if (command == "SEARCH")
+			PhoneBook.get_information();
 		PhoneBook.show_instruction();
 		std::getline(std::cin, command);
 	}
-	if (run)
-		std::cout << std::endl;
 }
