@@ -22,7 +22,7 @@ class Contact
 {
 	private:
 		static std::string	_fields_name[5];
-		std::string			_informations[11];
+		std::string			_informations[15];
 
 		enum Fields
 		{
@@ -39,6 +39,7 @@ class Contact
 
 		bool	set_contact();
 		void	get_contact(int index)const;
+		void 	display_contact(void)const;
 };
 
 #endif

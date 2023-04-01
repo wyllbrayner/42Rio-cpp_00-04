@@ -21,8 +21,7 @@ int main(void)
 
 	run = true;
 	PhoneBook.show_instruction();
-	std::getline(std::cin, command);
-	while (run)
+	while (run && (std::getline(std::cin, command)))
 	{
 		if ((std::cin.eof()) || (command == "EXIT"))
 		{
@@ -34,6 +33,5 @@ int main(void)
 		else if (command == "SEARCH")
 			PhoneBook.get_information();
 		PhoneBook.show_instruction();
-		std::getline(std::cin, command);
 	}
 }

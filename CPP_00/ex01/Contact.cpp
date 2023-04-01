@@ -34,37 +34,34 @@ Contact::Contact()
 	return;
 }
 
-/*
-Contact::Contact()
-{
-	for (int i = FirstName; i <= DarkestSecret; i++)
-		this->_informations[i] = std::string();
-	return;
-}
-*/
-
 Contact::~Contact()
 {
 }
 
 bool Contact::set_contact()
 {
-	for (int i = FirstName; i <= DarkestSecret; i++)
+	int	i;
+
+	i = FirstName;
+	while (i <= DarkestSecret)
 	{
-		std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
-		while (!(std::getline(std::cin, this->_informations[i])) || this->_informations[i].length() == 0)
+		std::cout << "Enter the " << Contact::_fields_name[i] << ": ";
+		while (!(std::getline(std::cin, this->_informations[i])) || \
+		this->_informations[i].length() == 0)
 		{
-			if (std::cin.eof() == true)
+			if (std::cin.eof())
 			{
-				std::cout << "You Pressed ^D. Exiting phonebook now." << std::endl;
+				std::cout << std::endl;
 				std::exit(0);
 			}
-			else if (this->_informations[i].length() == 0)
+			else
 			{
-				this->_informations[i].clear();
-				std::cout << "Empty contact information not allowed.";
+				std::cout << "Empty information is not allowed." << std::endl;
+				std::cout << "Enter the ";
+				std::cout << Contact::_fields_name[i] << ": ";
 			}
 		}
+		i++;
 	}
 	std::cout << "Contact added sucessesfully." << std::endl;
 	return (true);
@@ -86,4 +83,17 @@ void Contact::get_contact(int index) const
 		i++;
 	}
 	std::cout << "|" << std::endl;
+}
+
+void Contact::display_contact(void) const
+{
+	int i;
+
+	i = FirstName;
+	while (i <= DarkestSecret)
+	{
+		std::cout << std::setw(15) << Contact::_fields_name[i];
+		std::cout << ": " << this->_informations[i] << std::endl;
+		i++;
+	}
 }
