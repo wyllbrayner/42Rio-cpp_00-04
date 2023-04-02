@@ -26,8 +26,8 @@ PhoneBook::~PhoneBook(void)
 
 void	PhoneBook::set_information(void)
 {
-	int			i;
-	std::string input;
+	int		i;
+	std::string	input;
 
 	std::cout << "Contact # " << this->_index + 1 << std::endl;
 	if (this->_full == false)
@@ -52,10 +52,10 @@ void	PhoneBook::set_information(void)
 	}
 }
 
-void PhoneBook::get_information() const
+void	PhoneBook::get_information() const
 {
-	int			i;
-	int			index;
+	int		i;
+	int		index;
 	std::string	input;
 
 	if (this->_index == 0)
@@ -72,13 +72,13 @@ void PhoneBook::get_information() const
 			index++;
 		}
 		std::cout << "|----------|----------|----------|----------|" << std::endl;
-		std::cout << "Please tell me which contact index I should show you. ";
+		std::cout << "Please tell me which contact I should show you. ";
 		std::cout << "(0 to quit searching)" << std::endl;
 		std::cout << "index: ";
 		while (!(std::getline(std::cin, input)) || input.length() > 1 || \
-			input.compare("0") < 0 || input.compare("8") > 0 || \
-			(((std::atoi(input.c_str()) - 1) >= this->_index) && this->_full \
-			== false))
+				input.compare("0") < 0 || input.compare("8") > 0 || \
+				(((std::atoi(input.c_str()) - 1) >= this->_index) && this->_full \
+				 == false))
 		{
 			if (std::cin.eof())
 			{
@@ -91,7 +91,9 @@ void PhoneBook::get_information() const
 			else if (((std::atoi(input.c_str()) - 1) >= this->_index) \
 					&& this->_full == false)
 				std::cout << "You only have " << this->_index << " Contacts saved." << std::endl;
-			std::cout << "Please tell me which contact I should show you. (0 to quit searching)\nIndex: ";
+			std::cout << "Please tell me which contact I should show you. ";
+			std::cout << "(0 to quit searching)" << std::endl;
+			std::cout << "index: ";
 		}
 		index = std::atoi(input.c_str());
 		if (index > 0)

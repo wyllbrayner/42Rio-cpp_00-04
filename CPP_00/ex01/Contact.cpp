@@ -38,7 +38,7 @@ Contact::~Contact()
 {
 }
 
-bool Contact::set_contact()
+bool	Contact::set_contact()
 {
 	int	i;
 
@@ -47,7 +47,7 @@ bool Contact::set_contact()
 	{
 		std::cout << "Enter the " << Contact::_fields_name[i] << ": ";
 		while (!(std::getline(std::cin, this->_informations[i])) || \
-		this->_informations[i].length() == 0)
+				this->_informations[i].length() == 0)
 		{
 			if (std::cin.eof())
 			{
@@ -67,7 +67,7 @@ bool Contact::set_contact()
 	return (true);
 }
 
-void Contact::get_contact(int index) const
+void	Contact::get_contact(int index) const
 {
 	int	i;
 
@@ -85,9 +85,9 @@ void Contact::get_contact(int index) const
 	std::cout << "|" << std::endl;
 }
 
-void Contact::display_contact(void) const
+void	Contact::display_contact(void) const
 {
-	int i;
+	int	i;
 
 	i = FirstName;
 	while (i <= DarkestSecret)

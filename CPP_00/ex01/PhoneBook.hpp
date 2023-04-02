@@ -15,24 +15,23 @@
 
 #include <string>
 #include <iomanip>
-#include <cstdlib>
+//#include <cstdlib>
 #include <iostream>
 #include "Contact.hpp"
 
-class PhoneBook
+class	PhoneBook
 {
 	private:
-		Contact _contacts[8];
-		int		_index;
+		Contact	_contacts[8];
+		int	_index;
 		bool	_full;
 
 	public:
-	PhoneBook(void);
-	~PhoneBook(void);
+		PhoneBook(void);
+		~PhoneBook(void);
 
 	void	set_information(void);
 	void	get_information(void)const;
 	void	show_instruction(void);
 };
-
 #endif

@@ -15,16 +15,15 @@
 
 #include <string>
 #include <iomanip>
-#include <cstdlib>
 #include <iostream>
 
-class Contact
+class	Contact
 {
 	private:
 		static std::string	_fields_name[5];
-		std::string			_informations[15];
+		std::string		_informations[15];
 
-		enum Fields
+		enum	Fields
 		{
 			FirstName = 0,
 			LastName,
@@ -32,14 +31,12 @@ class Contact
 			PhoneNumber,
 			DarkestSecret
 		};
-
 	public:
 		Contact(void);
 		~Contact(void);
 
 		bool	set_contact();
 		void	get_contact(int index)const;
-		void 	display_contact(void)const;
+		void	display_contact(void)const;
 };
-
 #endif

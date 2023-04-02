@@ -13,7 +13,7 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-int main(void)
+int	main(void)
 {
 	PhoneBook	PhoneBook;
 	bool		run;
