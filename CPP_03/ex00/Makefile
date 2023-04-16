@@ -1,9 +1,9 @@
-SRCS        = main.cpp ClapTrap.cpp
-OBJS        = $(SRCS:.cpp=.o)
+SRCS		= main.cpp ClapTrap.cpp
+OBJS		= $(SRCS:.cpp=.o)
 INCLUDES	= ClapTrap.hpp
-NAME        = claptrap
-FLAG        = -Wall -Wextra -Werror -std=c++98
-COMP        =  c++
+NAME		= claptrap
+FLAG		= -Wall -Wextra -Werror -std=c++98
+COMP		=  c++
 
 all: $(NAME)
 

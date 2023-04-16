@@ -18,17 +18,17 @@
 class	Fixed
 {
 	private:
-		int					_fp_value;
+		int			_fp_value;
 		static const int	_fract_bits = 8;
-
+	
 	public:
 		Fixed();
 		Fixed( const Fixed& copy );
 		~Fixed();
+		
+		Fixed	&operator=( const Fixed &src );
 
-		Fixed &operator=( const Fixed &src );
-
-		int getRawBits( void )const;
-		void setRawbits( int const raw );
+		int	getRawBits( void )const;
+		void	setRawbits( int const raw );
 };
 #endif

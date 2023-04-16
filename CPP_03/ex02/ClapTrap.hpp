@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,37 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-int	main( void )
+# include <iostream>
+
+class ClapTrap
 {
-	std::string player1 = "Maria";
-	std::string player2 = "João";
-	std::string player3 = "Enemy1";
-	
-	ClapTrap	j1(player1);
-	ClapTrap	j2(player2);
+	protected:
+		std::string	_name;
+		unsigned int	_hit_points;
+		unsigned int	_energy_points;
+		unsigned int	_attack_damage;
 
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.beRepaired(8);
-	j1.attack(player3);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	return (0);
-}
+	public:
+		ClapTrap();
+		ClapTrap( std::string name );
+		ClapTrap( const ClapTrap& copy );
+		
+		ClapTrap	&operator=( const ClapTrap &src );
+		
+		~ClapTrap();
+		
+		void	attack( const std::string& target );
+		void	takeDamage( unsigned int amount );
+		void	beRepaired( unsigned int amount );
+};
+#endif

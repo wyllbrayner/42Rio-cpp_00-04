@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int	main( void )
+int main( void )
 {
 	std::string player1 = "Maria";
 	std::string player2 = "João";
 	std::string player3 = "Enemy1";
-	
-	ClapTrap	j1(player1);
-	ClapTrap	j2(player2);
+
+	ScavTrap 	j1(player1);
+	ClapTrap 	j2(player2);
 
 	j1.attack(player3);
 	j1.attack(player3);
@@ -30,17 +30,17 @@ int	main( void )
 	j1.attack(player3);
 	j1.attack(player3);
 	j1.attack(player3);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.beRepaired(8);
+	j1.takeDamage(20);
+	j1.takeDamage(20);
+	j1.takeDamage(20);
+	j1.takeDamage(20);
+	j1.takeDamage(15);
+	j1.beRepaired(10);
 	j1.attack(player3);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
+	j1.takeDamage(4);
+	j1.takeDamage(4);
+	j1.takeDamage(4);
+	j1.guardGate();
+	j1.guardGate();
 	return (0);
 }

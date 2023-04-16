@@ -1,14 +1,14 @@
-SRCS		= main.cpp Fixed.cpp
+SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS		= $(SRCS:.cpp=.o)
-INCLUDES	= Fixed.hpp
-NAME		= a.out
+INCLUDES	= ClapTrap.hpp ScavTrap.hpp
+NAME		= scavtrap
 FLAG		= -Wall -Wextra -Werror -std=c++98
 COMP		=  c++
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES)
-	$(COMP) $(FLAG) $(OBJS) $(INCLUDES)
+	$(COMP) $(FLAG) $(OBJS) $(INCLUDES) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)

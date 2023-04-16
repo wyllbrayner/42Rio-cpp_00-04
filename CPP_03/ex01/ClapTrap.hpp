@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef	CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
 
-class	Fixed
+class ClapTrap
 {
-	private:
-		int					_fp_value;
-		static const int	_fract_bits = 8;
-
+	protected:
+		std::string		_name;
+		unsigned int	_hit_points;
+		unsigned int	_energy_points;
+		unsigned int	_attack_damage;
+	
 	public:
-		Fixed();
-		Fixed( const Fixed& copy );
-		Fixed &operator=( const Fixed &src );
-		~Fixed();
+		ClapTrap();
+		ClapTrap( std::string name );
+		ClapTrap( const ClapTrap& copy );
 
+		ClapTrap	&operator=( const ClapTrap &src );
 
-		int getRawBits( void )const;
-		void setRawbits( int const raw );
+		~ClapTrap();
+
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 };
 #endif

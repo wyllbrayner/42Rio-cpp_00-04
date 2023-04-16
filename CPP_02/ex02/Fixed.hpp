@@ -19,9 +19,9 @@
 class	Fixed
 {
 	private:
-		int					_fp_value;
+		int			_fp_value;
 		static const int	_fract_bits = 8;
-
+	
 	public:
 		Fixed();
 		Fixed( const Fixed& copy );
@@ -48,11 +48,11 @@ class	Fixed
 		static const Fixed &min(Fixed const &first, Fixed const &second);
 		static Fixed &max(Fixed &first, Fixed &second);
 		static const Fixed &max(Fixed const &first, const Fixed &second);
-
-		float toFloat( void )const;
+		
+		float	toFloat( void )const;
 		int	toInt( void )const;
-		int getRawBits( void )const;
-		void setRawbits( int const raw );
+		int	getRawBits( void )const;
+		void	setRawbits( int const raw );
 };
 
 std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);

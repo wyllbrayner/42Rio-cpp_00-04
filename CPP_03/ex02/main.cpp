@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,42 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-Fixed::Fixed()
+int	main( void )
 {
-	std::cout << "Default Constructor called" << std::endl;
-	this->_fp_value = 0;
-	return;
-}
+	std::string player1 = "Maria";
+	std::string player2 = "João";
+	std::string player3 = "Enemy1";
 
-Fixed::Fixed( const Fixed& copy)
-{
-	std::cout << "Copy Constructor called" << std::endl;
-	*this = copy;
-	return;
-}
+	FragTrap	j1(player1);
+	ScavTrap 	j2;
+	ClapTrap	j3(player2);
 
-Fixed &Fixed::operator=(const Fixed &src)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fp_value = src.getRawBits();
-	return (*this);
-}
-
-Fixed::~Fixed()
-{
-	std::cout << "Deconstructor called" << std::endl;
-	return;
-}
-
-int	Fixed::getRawBits( void )const
-{
-	std::cout << "getRawbits member function called" << std::endl;
-	return (this->_fp_value);
-}
-
-void Fixed::setRawbits( int const raw )
-{
-	this->_fp_value = raw;
+	j1.attack(player3);
+	j1.attack(player3);
+	j1.attack(player3);
+	j1.attack(player3);
+	j1.attack(player3);
+	j1.attack(player3);
+	j1.attack(player3);
+	j1.attack(player3);
+	j1.attack(player3);
+	j1.takeDamage(30);
+	j1.takeDamage(30);
+	j1.takeDamage(30);
+	j1.beRepaired(10);
+	j1.attack(player3);
+	j1.takeDamage(10);
+	j1.highFivesGuys();
+	j1.takeDamage(10);
+	j1.takeDamage(10);
+	j1.highFivesGuys();
+	return (0);
 }

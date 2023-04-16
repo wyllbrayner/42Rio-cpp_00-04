@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,37 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int	main( void )
+# include "ClapTrap.hpp"
+# include <iostream>
+
+class FragTrap: public ClapTrap
 {
-	std::string player1 = "Maria";
-	std::string player2 = "João";
-	std::string player3 = "Enemy1";
-	
-	ClapTrap	j1(player1);
-	ClapTrap	j2(player2);
+	private:
 
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.attack(player3);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.beRepaired(8);
-	j1.attack(player3);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	j1.takeDamage(2);
-	return (0);
-}
+	public:
+		FragTrap();
+		FragTrap( std::string name );
+		FragTrap( const FragTrap& copy );
+
+		FragTrap	&operator=( const FragTrap &src );
+
+		~FragTrap();
+		void	highFivesGuys(void);
+};
+#endif

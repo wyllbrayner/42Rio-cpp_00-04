@@ -19,7 +19,7 @@
 class	Fixed
 {
 	private:
-		int					_fp_value;
+		int			_fp_value;
 		static const int	_fract_bits = 8;
 
 	public:
@@ -29,13 +29,13 @@ class	Fixed
 		Fixed( const float input );
 		~Fixed();
 
-		Fixed &operator=( const Fixed &src );
-		
-		float toFloat( void )const;
+		Fixed	&operator=( const Fixed &src );
+
+		float	toFloat( void )const;
 		int	toInt( void )const;
-		int getRawBits( void )const;
-		void setRawbits( int const raw );
+		int	getRawBits( void )const;
+		void	setRawbits( int const raw );
 };
 
-std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);
+std::ostream	&operator<<( std::ostream &o, Fixed const &fixed );
 #endif
