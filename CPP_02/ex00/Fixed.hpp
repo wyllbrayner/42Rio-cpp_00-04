@@ -24,9 +24,9 @@ class	Fixed
 	public:
 		Fixed();
 		Fixed( const Fixed& copy );
-		~Fixed();
-		
 		Fixed	&operator=( const Fixed &src );
+		
+		~Fixed();
 
 		int	getRawBits( void )const;
 		void	setRawbits( int const raw );

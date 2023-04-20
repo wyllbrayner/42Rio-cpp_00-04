@@ -11,23 +11,18 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
+//#include "Contact.hpp"
 
 int	main(void)
 {
 	PhoneBook	PhoneBook;
-	bool		run;
 	std::string	command;
 
-	run = true;
 	PhoneBook.show_instruction();
-	while (run && (std::getline(std::cin, command)))
+	while (std::getline(std::cin, command))
 	{
 		if ((std::cin.eof()) || (command == "EXIT"))
-		{
-			run = false;
 			break ;
-		}
 		else if (command == "ADD")
 			PhoneBook.set_information();
 		else if (command == "SEARCH")

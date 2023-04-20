@@ -25,7 +25,7 @@ Harl::~Harl()
 void	Harl::complain( std::string level )
 {
 	void	(Harl::*ptrf)(void);
-	int	val;
+	int		val;
 
 	if (level.compare("debug") == 0)
 		val = 0;

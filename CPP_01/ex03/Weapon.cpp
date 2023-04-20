@@ -20,13 +20,13 @@ Weapon::Weapon(const std::string &weapon)
 
 Weapon::~Weapon()
 {
-	std::cout << this->getType() << " dropped to the floor and broke." << std::endl;
+	std::cout << this->getType() << " dropped to the floor and broke." \
+		<< std::endl;
 	return;
 }
 
 const std::string Weapon::getType()
 {
-//	return (_type);
 	return (this->_type);
 }
 

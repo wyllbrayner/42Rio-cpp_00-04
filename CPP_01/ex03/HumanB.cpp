@@ -28,17 +28,19 @@ void HumanB::setWeapon(Weapon &weapon)
 {
 	this->_weapon = &weapon;
 	this->_is_armed = true;
-	std::cout << this->_name << " grabbed a " << this->_weapon->getType() << " to fight with." << std::endl;
+	std::cout << this->_name << " grabbed a " << this->_weapon->getType() \
+	<< " to fight with." << std::endl;
 }
 
 void HumanB::attack(void)
 {
 	if (this->_is_armed)
 	{
-		std::cout << this->_name << " attacks with his " << this->_weapon->getType() << "." << std::endl;
+		std::cout << this->_name << " attacks with their " \
+		<< this->_weapon->getType() << "." << std::endl;
 	}
 	else
 	{
-		std::cout << this->_name << " attacks with his arms." << std::endl;
+		std::cout << this->_name << " attacks with their arms." << std::endl;
 	}
 }

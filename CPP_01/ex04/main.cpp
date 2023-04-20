@@ -27,8 +27,8 @@ int	main(int argc, char **argv)
 	if (argc != 4)
 	{
 		std::cout \
-		<< "Please enter valid parameters: ./replace file_name to_search replace_to" \
-		<< std::endl;
+		<< "Please enter valid parameters: " \
+		<< "./replace file_name to_search replace_to" << std::endl;
 	}
 	else
 	{
@@ -58,6 +58,8 @@ int	main(int argc, char **argv)
 				}
 				ofs.close();
 			}
+			else
+				std::cout << "Could not open all files." << std::endl;
 			ifs.close();
 		}
 		else

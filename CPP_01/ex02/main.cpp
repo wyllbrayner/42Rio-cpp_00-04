@@ -15,15 +15,16 @@
 
 int	main(void)
 {
-	std::string var;
-	std::string* stringPTR;
-	std::string& stringREF = var;
+	std::string	var;
+	std::string	*stringPTR;
+	std::string	&stringREF = var;
 
 	var = "HI THIS IS BRAIN";
 	stringPTR = &var;
 
 	std::cout << "The memory address of var is:       " << &var \
-	<< ". Finally, its content is: " << var << "." << std::endl;
+	<< "                                                    \
+	   . Finally, its content is: " << var << "." << std::endl;
 	std::cout << "The memory address of stringPTR is: " << &stringPTR \
 	<< ", the memory address held by stringPTR is: " << stringPTR \
 	<< ". Finally, its content is: " << *stringPTR << "." << std::endl;

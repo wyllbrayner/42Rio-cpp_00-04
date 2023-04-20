@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "Weapon.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-HumanA::HumanA(std::string name, Weapon &weapon):_weapon(weapon)
-{
-	this->_name = name;
-	std::cout << this->_name << " joined the battlefield and grabbed a " <<this->_weapon.getType() << " to fight." << std::endl;
-}
+# include <iostream>
 
-HumanA::~HumanA(void)
+class	Animal
 {
-	std::cout << this->_name << " died." << std::endl;
-}
+	protected:
+		std::string	_type;
 
-void HumanA::attack(void)
-{
-	std::cout << this->_name << " attack with his " << this->_weapon.getType() << "." << std::endl;
-}
+	public:
+		Animal();
+		Animal( const Animal& copy );
+
+		Animal	&operator=( const Animal &src );
+
+		~Animal();
+
+		std::string		getType( void )const;
+		virtual void		makeSound( void )const;
+};
+#endif
