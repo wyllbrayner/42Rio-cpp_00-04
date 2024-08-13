@@ -54,7 +54,6 @@ void	PhoneBook::set_information(void)
 
 void	PhoneBook::get_information() const
 {
-	int		i;
 	int		index;
 	std::string	input;
 
@@ -77,7 +76,7 @@ void	PhoneBook::get_information() const
 		std::cout << "index: ";
 		while (!(std::getline(std::cin, input)) || input.length() > 1 || \
 				input.compare("0") < 0 || input.compare("8") > 0 || \
-				(((std::atoi(input.c_str()) - 1) >= this->_index) && this->_full \
+				(((atoi(input.c_str()) - 1) >= this->_index) && this->_full \
 				 == false))
 		{
 			if (std::cin.eof())
@@ -88,14 +87,14 @@ void	PhoneBook::get_information() const
 			else if (input.length() > 1 || input.compare("0") < 0 || \
 					input.compare("8") > 0)
 				std::cout << "Only digits in range of 1 to 8 are allowed.\n";
-			else if (((std::atoi(input.c_str()) - 1) >= this->_index) \
+			else if (((atoi(input.c_str()) - 1) >= this->_index) \
 					&& this->_full == false)
 				std::cout << "You only have " << this->_index << " Contacts saved." << std::endl;
 			std::cout << "Please tell me which contact I should show you. ";
 			std::cout << "(0 to quit searching)" << std::endl;
 			std::cout << "index: ";
 		}
-		index = std::atoi(input.c_str());
+		index = atoi(input.c_str());
 		if (index > 0)
 			this->_contacts[index - 1].display_contact();
 	}

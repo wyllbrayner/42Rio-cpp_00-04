@@ -16,6 +16,7 @@
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <stdlib.h>
 
 class	Contact
 {

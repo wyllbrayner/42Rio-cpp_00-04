@@ -52,7 +52,7 @@ bool	Contact::set_contact()
 			if (std::cin.eof())
 			{
 				std::cout << std::endl;
-				std::exit(0);
+				exit(0);
 			}
 			else
 			{
