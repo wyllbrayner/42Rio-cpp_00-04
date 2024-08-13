@@ -18,7 +18,7 @@
 int	main( void )
 {
 	const Animal* meta = new Animal();
-	Animal* j = new Dog();
+	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
@@ -34,6 +34,8 @@ int	main( void )
 	delete j;
 	delete i;
 	delete wcat;
+/*
+*/
 /*
 	Animal	a1;
 	Animal	a2(a1);

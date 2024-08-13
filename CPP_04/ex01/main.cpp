@@ -13,14 +13,12 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-//#include "WrongCat.hpp"
 
 int	j = 10;
 
 int	main( void )
 {
 	int	i;
-/*
 	const Animal	*Animal[j];
 	std:: cout << "*************** ==== || ==== ***************" << std::endl;
 	i = -1;
@@ -41,7 +39,7 @@ int	main( void )
 	i = -1;
 	while (++i < j)
 		delete Animal[i];
-*/
+/*
 	std:: cout << std::endl;
 	std:: cout << "*************** ==== || ==== ***************" << std::endl;
 	Dog	*d1 = new Dog();
@@ -58,5 +56,6 @@ int	main( void )
 	delete d1;
 	d2->getIdeas();
 	delete d2;
+*/
 	return (0);
 }

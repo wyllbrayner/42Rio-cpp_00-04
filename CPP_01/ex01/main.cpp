@@ -27,7 +27,7 @@ int	main(void)
 	while (i < N)
 	{
 		std::cout << "zombie: [ " << i << " ]" << std::endl;
-		bie1->announce();
+		bie1[i].announce();
 		i++;
 	}
 	delete[] bie1;

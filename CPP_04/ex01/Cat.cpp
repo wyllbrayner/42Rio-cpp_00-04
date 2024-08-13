@@ -28,6 +28,7 @@ Cat::Cat( const Cat& copy )
 	*this = copy;
 	return;
 }
+
 Cat	&Cat::operator=( const Cat &src )
 {
 	std::cout << "Class: Cat - Copy assignment operator called by Cat type: " \

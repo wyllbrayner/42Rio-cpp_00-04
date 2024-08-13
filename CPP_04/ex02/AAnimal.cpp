@@ -47,10 +47,9 @@ std::string	AAnimal::getType( void )const
 {
 	return (this->_type);
 }
-/*
+
 void		AAnimal::makeSound( void )const
 {
 	std::cout << "The " << this->_type << " animal doesn't make any type of"\
 		<< " sound" << std::endl;
 }
-*/
