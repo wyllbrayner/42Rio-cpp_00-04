@@ -1,20 +1,33 @@
-SRCS		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
-OBJS		= $(SRCS:.cpp=.o)
-INCLUDE		= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 NAME		= ver
+SRCS		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+OBJDIR		= ./obj/
+OBJS		= $(addprefix $(OBJDIR), $(notdir $(SRCS:.cpp=.o)))
+INCLUDE		= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 FLAG		= -Wall -Wextra -Werror -std=c++98
-COMP		=  c++
+COMP		= c++
+RM			= rm -rf
+YELLOW		= \033[33m
+GREEN		= \033[32m
+RESET		= \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(INCLUDES)
-	$(COMP) $(FLAG) $(OBJS) $(INCLUDES) -o $(NAME)
+$(OBJDIR)%.o: %.cpp
+	@mkdir -p $(OBJDIR)
+	@$(COMP) $(FLAG) -c $< -o $@
+	@echo -n "#"
+
+$(NAME): $(OBJS)
+	@$(COMP) $(FLAG) -o $(NAME) $(OBJS) $(INCLUDES)
+	@echo "\n\$(GREEN) 💯 | $(NAME) created.$(RESET)"
 
 clean:
-	$(RM) $(OBJS)
+	@$(RM) $(OBJDIR)
+	@echo "$(YELLOW) 🧹 | $(NAME) cleaned.$(RESET)"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "$(YELLOW) 🌪️ | $(NAME) all cleaned.$(RESET)"
 
 re: fclean all
 
