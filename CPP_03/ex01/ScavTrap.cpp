@@ -34,7 +34,7 @@ ScavTrap::ScavTrap( std::string name )
 	return;
 }
 
-ScavTrap::ScavTrap( const ScavTrap& copy )
+ScavTrap::ScavTrap( const ScavTrap& copy ) : ClapTrap(copy)
 {
 	std::cout << "ScavTrap: Copy Construtor called by ScavTrap name: " \
 		<< copy._name << std::endl;

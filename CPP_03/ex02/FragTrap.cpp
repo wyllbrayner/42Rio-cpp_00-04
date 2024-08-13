@@ -34,7 +34,7 @@ FragTrap::FragTrap( std::string name )
 	return;
 }
 
-FragTrap::FragTrap( const FragTrap& copy )
+FragTrap::FragTrap( const FragTrap& copy ) : ClapTrap(copy)
 {
 	std::cout << "FragTrap: Copy Construtor called by FragTrap name: " \
 		<< copy._name << std::endl;
