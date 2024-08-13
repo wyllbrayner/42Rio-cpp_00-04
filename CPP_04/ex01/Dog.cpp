@@ -21,7 +21,7 @@ Dog::Dog()
 	return;
 }
 
-Dog::Dog( const Dog& copy )
+Dog::Dog( const Dog& copy ) : Animal( copy )
 {
 	std::cout << "Class: Dog - Copy Construtor called by Dog type: " \
 		<< copy._type << std::endl;

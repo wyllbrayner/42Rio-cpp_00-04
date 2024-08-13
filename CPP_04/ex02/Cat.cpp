@@ -21,7 +21,7 @@ Cat::Cat()
 	return;
 }
 
-Cat::Cat( const Cat& copy )
+Cat::Cat( const Cat& copy ) : AAnimal( copy )
 {
 	std::cout << "Class: Cat - Copy Construtor called by Cat type: " \
 		<< copy._type << std::endl;

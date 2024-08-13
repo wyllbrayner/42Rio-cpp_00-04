@@ -20,7 +20,7 @@ WrongCat::WrongCat()
 	return;
 }
 
-WrongCat::WrongCat( const WrongCat& copy )
+WrongCat::WrongCat( const WrongCat& copy ) : WrongAnimal( copy )
 {
 	std::cout << "Class: WrongCat - Copy Construtor called by WrongCat "\
 		<< "type: " << copy._type << std::endl;
